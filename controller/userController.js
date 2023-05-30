@@ -49,13 +49,14 @@ const userCtrl = {
         return res.status(400).json({ msg: "Password is incorrect." });
 
       const refresh_token = createRefreshToken({ id: user._id });
-      res.cookie("refreshtoken", refresh_token, {
+        res.cookie("refreshtoken", refresh_token, {
         httpOnly: true,
         path: "/user/refresh_token",
         maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
       });
 
-      res.json({ msg: "Login success!" });
+      const token = jwt.sign({ id: user._id }, process.env.ACCESS_TOKEN_SECRET);
+      res.status(200).json({ msg: "Login success! ", token, user });;
     } catch (err) {
       return res.status(500).json({ msg: err.message });
     }

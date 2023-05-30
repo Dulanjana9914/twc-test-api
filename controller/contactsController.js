@@ -21,7 +21,10 @@ export const addContact = async (req, res) => {
 export const getAllContacts = async (req, res) => {
   try {
     const getall = await Contacts.find();
-    res.status(200).json(getall);
+     return res.status(200).json({
+        success: true,
+        contacts: getall,
+      });
   } catch (error) {
     res.status(404).json({ message: error.message });
   }
