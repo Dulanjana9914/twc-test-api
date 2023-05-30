@@ -4,12 +4,12 @@ import express from "express";
 
 const router = express.Router();
 
-router.get("/",  getAllContacts);
+router.get("/", auth, getAllContacts);
 
-router.post("/add",  addContact);
+router.post("/add", auth, addContact);
 
-router.patch("/update/:id",  updateContact);
+router.patch("/update/:id", auth, updateContact);
 
-router.delete("/delete/:id",  deleteContact);
+router.delete("/delete/:id", auth, deleteContact);
 
 export default router;

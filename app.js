@@ -24,4 +24,3 @@ app.use("/contacts", contactsRoute);
 app.listen(8070, () => {
   console.log("Server is running on port 8070");
 });
-

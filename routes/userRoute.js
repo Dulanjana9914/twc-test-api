@@ -1,9 +1,9 @@
 import userCtrl from "../controller/userController.js";
 import express from "express";
 
-const router =express.Router();
+const router = express.Router();
 
-router.post("/register",  userCtrl.register);
+router.post("/register", userCtrl.register);
 
 router.post("/login", userCtrl.login);
 
